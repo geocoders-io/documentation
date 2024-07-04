@@ -22,12 +22,10 @@ There are two ways to build API documentation: [OpenAPI](https://mintlify.com/do
 
 ## Authentication
 
-All API endpoints are authenticated using Bearer tokens and picked up from the specification file.
+All API endpoints are authenticated using API Keys generated within [the dashboard](https://dashboard.geocoders.io) 
 
 ```json
-"security": [
-  {
-    "bearerAuth": []
-  }
-]
+"Headers": {
+    "x-api-key": [YOUR API KEY]
+}
 ```

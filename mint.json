@@ -37,6 +37,13 @@
             "url": "https://docs.geocoders.io"
         }
     ],
+    "api": {
+        "baseUrl": "https://api.geocoders.io",
+        "auth": {
+            "method": "key",
+            "name": "x-api-key"
+        }
+    },
     "navigation": [
         {
             "group": "Get Started",
@@ -52,11 +59,11 @@
             ]
         },
         {
-            "group": "Endpoint Examples",
+            "group": "Geocoding",
             "pages": [
-                "api-reference/endpoint/get",
-                "api-reference/endpoint/create",
-                "api-reference/endpoint/delete"
+                "api-reference/geocode/forward",
+                "api-reference/geocode/reverse",
+                "api-reference/geocode/postcode"
             ]
         }
     ]
