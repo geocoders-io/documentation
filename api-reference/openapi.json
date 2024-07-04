@@ -1,195 +1,321 @@
 {
-  "openapi": "3.0.1",
-  "info": {
-    "title": "OpenAPI Plant Store",
-    "description": "A sample API that uses a plant store as an example to demonstrate features in the OpenAPI specification",
-    "license": {
-      "name": "MIT"
+    "openapi": "3.0.0",
+    "info": {
+        "title": "Geocoders API",
+        "version": "1.0.0",
+        "description": "API that powers geospatial applications"
     },
-    "version": "1.0.0"
-  },
-  "servers": [
-    {
-      "url": "http://sandbox.mintlify.com"
-    }
-  ],
-  "security": [
-    {
-      "bearerAuth": []
-    }
-  ],
-  "paths": {
-    "/plants": {
-      "get": {
-        "description": "Returns all plants from the system that the user has access to",
-        "parameters": [
-          {
-            "name": "limit",
-            "in": "query",
-            "description": "The maximum number of results to return",
-            "schema": {
-              "type": "integer",
-              "format": "int32"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "Plant response",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "type": "array",
-                  "items": {
-                    "$ref": "#/components/schemas/Plant"
-                  }
-                }
-              }
-            }
-          },
-          "400": {
-            "description": "Unexpected error",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/Error"
-                }
-              }
-            }
-          }
+    "servers": [
+        {
+            "url": "https://api.geocoders.io"
         }
-      },
-      "post": {
-        "description": "Creates a new plant in the store",
-        "requestBody": {
-          "description": "Plant to add to the store",
-          "content": {
-            "application/json": {
-              "schema": {
-                "$ref": "#/components/schemas/NewPlant"
-              }
+    ],
+    "security": [
+        {
+            "ApiKeyAuth": []
+        }
+    ],
+    "paths": {
+        "/geocode/forward": {
+            "post": {
+                "tags": [
+                    "geocoding"
+                ],
+                "description": "Convert an address to latitude/longitude pair",
+                "summary": "/geocode/forward",
+                "requestBody": {
+                    "description": "Adress to forward geocode",
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/ForwardGeocodeInput",
+                                "example": {
+                                    "street_name": "Nieuwe Binnenweg",
+                                    "house_number": 1
+                                }
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Forward geocode response",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ForwardGeocodeResponse",
+                                    "example": {
+                                        "latitude": 4.47241704538452,
+                                        "longitude": 51.9170672712528
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
             }
-          },
-          "required": true
         },
-        "responses": {
-          "200": {
-            "description": "plant response",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/Plant"
+        "/geocode/reverse": {
+            "post": {
+                "tags": [
+                    "geocoding"
+                ],
+                "description": "Convert a latitude/longitude pair to address",
+                "summary": "/geocode/reverse",
+                "requestBody": {
+                    "description": "Latitude/longitude pair to reverse Geocode",
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/ReverseGeocodeInput",
+                                "example": {
+                                    "latitude": 51.9170562,
+                                    "longitude": 4.4708004
+                                }
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Reverse geocode response",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ReverseGeocodeResponse",
+                                    "example": {
+                                        "house_number": "27",
+                                        "house_character": null,
+                                        "house_number_addition": null,
+                                        "street_name": "Nieuwe Binnenweg",
+                                        "zipcode": "3014GB",
+                                        "municipality": "Rotterdam",
+                                        "province": "Zuid-Holland"
+                                    }
+                                }
+                            }
+                        }
+                    }
                 }
-              }
             }
-          },
-          "400": {
-            "description": "unexpected error",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/Error"
+        },
+        "/geocode/postcode": {
+            "post": {
+                "tags": [
+                    "postcode"
+                ],
+                "description": "Address lookup for given zipcode",
+                "summary": "/geocode/postcode",
+                "requestBody": {
+                    "description": "Postcode to convert to address",
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/PostcodeLookupInput",
+                                "example": {
+                                    "zipcode": "3012LA"
+                                }
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Reverse geocode response",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/PostcodeLookupResponse",
+                                    "example": [
+                                        {
+                                            "house_number": "6",
+                                            "house_character": null,
+                                            "house_number_addition": "01",
+                                            "street_name": "Eendrachtsplein",
+                                            "zipcode": "3012LA",
+                                            "municipality": "Rotterdam",
+                                            "province": "Zuid-Holland",
+                                            "latitude": 4.47376300030858,
+                                            "longitude": 51.9170599235977
+                                        },
+                                        {
+                                            "house_number": "8",
+                                            "house_character": null,
+                                            "house_number_addition": "SO",
+                                            "street_name": "Eendrachtsplein",
+                                            "zipcode": "3012LA",
+                                            "municipality": "Rotterdam",
+                                            "province": "Zuid-Holland",
+                                            "latitude": 4.47377869163882,
+                                            "longitude": 51.9170388321027
+                                        },
+                                        {
+                                            "house_number": "10",
+                                            "house_character": null,
+                                            "house_number_addition": "01",
+                                            "street_name": "Eendrachtsplein",
+                                            "zipcode": "3012LA",
+                                            "municipality": "Rotterdam",
+                                            "province": "Zuid-Holland",
+                                            "latitude": 4.47385905049655,
+                                            "longitude": 51.9169470522733
+                                        }
+                                    ]
+                                }
+                            }
+                        }
+                    }
                 }
-              }
             }
-          }
         }
-      }
     },
-    "/plants/{id}": {
-      "delete": {
-        "description": "Deletes a single plant based on the ID supplied",
-        "parameters": [
-          {
-            "name": "id",
-            "in": "path",
-            "description": "ID of plant to delete",
-            "required": true,
-            "schema": {
-              "type": "integer",
-              "format": "int64"
+    "components": {
+        "securitySchemes": {
+            "ApiKeyAuth": {
+                "type": "apiKey",
+                "in": "header",
+                "name": "X-Api-Key"
             }
-          }
-        ],
-        "responses": {
-          "204": {
-            "description": "Plant deleted",
-            "content": {}
-          },
-          "400": {
-            "description": "unexpected error",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/Error"
+        },
+        "schemas": {
+            "ForwardGeocodeInput": {
+                "type": "object",
+                "required": [
+                    "street_name",
+                    "house_number"
+                ],
+                "properties": {
+                    "street_name": {
+                        "type": "string"
+                    },
+                    "house_number": {
+                        "type": "integer"
+                    },
+                    "house_character": {
+                        "type": "string"
+                    },
+                    "municipality": {
+                        "type": "string"
+                    },
+                    "province": {
+                        "type": "string"
+                    }
                 }
-              }
+            },
+            "ForwardGeocodeResponse": {
+                "type": "object",
+                "properties": {
+                    "latitude": {
+                        "type": "number",
+                        "format": "float"
+                    },
+                    "longitude": {
+                        "type": "number",
+                        "format": "float"
+                    }
+                }
+            },
+            "ReverseGeocodeInput": {
+                "type": "object",
+                "required": [
+                    "latitude",
+                    "longitude"
+                ],
+                "properties": {
+                    "latitude": {
+                        "type": "number",
+                        "format": "float"
+                    },
+                    "longitude": {
+                        "type": "number",
+                        "format": "float"
+                    }
+                }
+            },
+            "ReverseGeocodeResponse": {
+                "type": "object",
+                "properties": {
+                    "house_number": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "house_character": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "house_number_addition": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "street_name": {
+                        "type": "string"
+                    },
+                    "zipcode": {
+                        "type": "string"
+                    },
+                    "municipality": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "province": {
+                        "type": "string",
+                        "nullable": true
+                    }
+                }
+            },
+            "PostcodeLookupInput": {
+                "type": "object",
+                "required": [
+                    "zipcode"
+                ],
+                "properties": {
+                    "zipcode": {
+                        "type": "string"
+                    }
+                }
+            },
+            "PostcodeLookupResponse": {
+                "type": "object",
+                "properties": {
+                    "house_number": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "house_character": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "house_number_addition": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "street_name": {
+                        "type": "string"
+                    },
+                    "zipcode": {
+                        "type": "string"
+                    },
+                    "municipality": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "province": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "latitude": {
+                        "type": "number",
+                        "format": "float"
+                    },
+                    "longitude": {
+                        "type": "number",
+                        "format": "float"
+                    }
+                }
             }
-          }
         }
-      }
     }
-  },
-  "components": {
-    "schemas": {
-      "Plant": {
-        "required": [
-          "name"
-        ],
-        "type": "object",
-        "properties": {
-          "name": {
-            "description": "The name of the plant",
-            "type": "string"
-          },
-          "tag": {
-            "description": "Tag to specify the type",
-            "type": "string"
-          }
-        }
-      },
-      "NewPlant": {
-        "allOf": [
-          {
-            "$ref": "#/components/schemas/Plant"
-          },
-          {
-            "required": [
-              "id"
-            ],
-            "type": "object",
-            "properties": {
-              "id": {
-                "description": "Identification number of the plant",
-                "type": "integer",
-                "format": "int64"
-              }
-            }
-          }
-        ]
-      },
-      "Error": {
-        "required": [
-          "error",
-          "message"
-        ],
-        "type": "object",
-        "properties": {
-          "error": {
-            "type": "integer",
-            "format": "int32"
-          },
-          "message": {
-            "type": "string"
-          }
-        }
-      }
-    },
-    "securitySchemes": {
-      "bearerAuth": {
-        "type": "http",
-        "scheme": "bearer"
-      }
-    }
-  }
 }

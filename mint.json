@@ -6,12 +6,12 @@
     },
     "favicon": "/favicon.png",
     "colors": {
-        "primary": "#4663ac",
-        "light": "#e1f1fd",
-        "dark": "#4663ac",
+        "primary": "#B99470",
+        "light": "#F7DCB9",
+        "dark": "#DEAC80",
         "anchors": {
-            "from": "#4663ac",
-            "to": "#e1f1fd"
+            "from": "#B99470",
+            "to": "#F7DCB9"
         }
     },
     "topbarLinks": [
@@ -37,13 +37,6 @@
             "url": "https://docs.geocoders.io"
         }
     ],
-    "api": {
-        "baseUrl": "https://api.geocoders.io",
-        "auth": {
-            "method": "key",
-            "name": "x-api-key"
-        }
-    },
     "navigation": [
         {
             "group": "Get Started",
