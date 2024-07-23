@@ -8,6 +8,9 @@
     "servers": [
         {
             "url": "https://api.geocoders.io"
+        },
+        {
+            "url": "https://api-test.geocoders.io"
         }
     ],
     "security": [
