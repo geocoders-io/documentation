@@ -70,7 +70,9 @@
                 "api-reference/countries/list",
                 "api-reference/countries/list-geojson",
                 "api-reference/countries/get",
-                "api-reference/countries/get-geojson"
+                "api-reference/countries/get-geojson",
+                "api-reference/countries/list-provinces",
+                "api-reference/countries/list-provinces-geojson"
             ]
         }
     ]

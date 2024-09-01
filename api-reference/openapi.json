@@ -308,6 +308,95 @@
                     }
                 }
             }
+        },
+        "/countries/{id}/provinces": {
+            "get": {
+                "tags": [
+                    "countries",
+                    "provinces"
+                ],
+                "description": "Get Country Provinces",
+                "summary": "/countries/:id/provinces",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "ID of Country Provinces to get",
+                        "required": true,
+                        "schema": {
+                            "type": "string",
+                            "format": "uuid"
+                        }
+                    },
+                    {
+                        "name": "name",
+                        "in": "query",
+                        "description": "name to filter by",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Get Country Provinces response",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "array",
+                                    "items": {
+                                        "$ref": "#/components/schemas/Province"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/countries/{id}/provinces/geojson": {
+            "get": {
+                "tags": [
+                    "countries",
+                    "provinces"
+                ],
+                "description": "Get Country Provinces GeoJSON",
+                "summary": "/countries/:id/provinces/geojson",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "ID of Country Provinces to get",
+                        "required": true,
+                        "schema": {
+                            "type": "string",
+                            "format": "uuid"
+                        }
+                    },
+                    {
+                        "name": "name",
+                        "in": "query",
+                        "description": "name to filter by",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Get Country Provinces response",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/FeatureCollection"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
         }
     },
     "components": {
@@ -509,6 +598,134 @@
                         "type": "string"
                     },
                     "local_identifier": {
+                        "type": "string"
+                    }
+                }
+            },
+            "Province": {
+                "type": "object",
+                "properties": {
+                    "id": {
+                        "type": "string",
+                        "format": "uuid"
+                    },
+                    "country_id": {
+                        "type": "string",
+                        "format": "uuid"
+                    },
+                    "name": {
+                        "type": "string"
+                    },
+                    "local_identifier": {
+                        "type": "string"
+                    }
+                }
+            },
+            "Municipality": {
+                "type": "object",
+                "properties": {
+                    "id": {
+                        "type": "string",
+                        "format": "uuid"
+                    },
+                    "province_id": {
+                        "type": "string",
+                        "format": "uuid"
+                    },
+                    "name": {
+                        "type": "string"
+                    },
+                    "local_identifier": {
+                        "type": "string"
+                    }
+                }
+            },
+            "City": {
+                "type": "object",
+                "properties": {
+                    "id": {
+                        "type": "string",
+                        "format": "uuid"
+                    },
+                    "municipality_id": {
+                        "type": "string",
+                        "format": "uuid"
+                    },
+                    "name": {
+                        "type": "string"
+                    },
+                    "local_identifier": {
+                        "type": "string"
+                    }
+                }
+            },
+            "Suburb": {
+                "type": "object",
+                "properties": {
+                    "id": {
+                        "type": "string",
+                        "format": "uuid"
+                    },
+                    "city_id": {
+                        "type": "string",
+                        "format": "uuid"
+                    },
+                    "name": {
+                        "type": "string"
+                    },
+                    "local_identifier": {
+                        "type": "string"
+                    }
+                }
+            },
+            "Building": {
+                "type": "object",
+                "properties": {
+                    "id": {
+                        "type": "string",
+                        "format": "uuid"
+                    },
+                    "suburb_id": {
+                        "type": "string",
+                        "format": "uuid"
+                    },
+                    "building_year": {
+                        "type": "string"
+                    },
+                    "local_identifier": {
+                        "type": "string"
+                    }
+                }
+            },
+            "Address": {
+                "type": "object",
+                "properties": {
+                    "id": {
+                        "type": "string",
+                        "format": "uuid"
+                    },
+                    "suburb_id": {
+                        "type": "string",
+                        "format": "uuid"
+                    },
+                    "building_id": {
+                        "type": "string",
+                        "format": "uuid"
+                    },
+                    "number": {
+                        "type": "string"
+                    },
+                    "suffix": {
+                        "type": "string"
+                    },
+                    "streetname": {
+                        "type": "string",
+                        "format": "uuid"
+                    },
+                    "postcode": {
+                        "type": "string"
+                    },
+                    "city": {
                         "type": "string"
                     }
                 }
