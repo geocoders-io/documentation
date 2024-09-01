@@ -201,6 +201,38 @@
                     }
                 }
             }
+        },
+        "/countries/{id}": {
+            "get": {
+                "tags": [
+                    "countries"
+                ],
+                "description": "Get Country",
+                "summary": "/countries/:id",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "ID of Country to get",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Get Country response",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/Country"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
         }
     },
     "components": {
