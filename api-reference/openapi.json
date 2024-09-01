@@ -552,6 +552,161 @@
                     }
                 }
             }
+        },
+        "/municipalities/{id}": {
+            "get": {
+                "tags": [
+                    "municipalities"
+                ],
+                "description": "Get Municipality",
+                "summary": "/municipalities/:id",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "ID of Municipality to get",
+                        "required": true,
+                        "schema": {
+                            "type": "string",
+                            "format": "uuid"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Get Municipality response",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/Municipality"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/municipalities/{id}/geojson": {
+            "get": {
+                "tags": [
+                    "municipalities"
+                ],
+                "description": "Get Municipality GeoJSON",
+                "summary": "/municipalities/:id/geojson",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "ID of Municipality to get",
+                        "required": true,
+                        "schema": {
+                            "type": "string",
+                            "format": "uuid"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Get Municipality GeoJSON response",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/FeatureCollection"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/municipalities/{id}/cities": {
+            "get": {
+                "tags": [
+                    "municipalities",
+                    "cities"
+                ],
+                "description": "List Municipality Cities",
+                "summary": "/municipalities/:id/cities",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "ID of Municipality Cities to list",
+                        "required": true,
+                        "schema": {
+                            "type": "string",
+                            "format": "uuid"
+                        }
+                    },
+                    {
+                        "name": "name",
+                        "in": "query",
+                        "description": "name to filter by",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Get Municipality Cities response",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "array",
+                                    "items": {
+                                        "$ref": "#/components/schemas/City"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/municipalities/{id}/cities/geojson": {
+            "get": {
+                "tags": [
+                    "municipalities",
+                    "cities"
+                ],
+                "description": "List Municipality Cities GeoJSON",
+                "summary": "/municipalities/:id/cities/geojson",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "ID of Municipality Cities to list",
+                        "required": true,
+                        "schema": {
+                            "type": "string",
+                            "format": "uuid"
+                        }
+                    },
+                    {
+                        "name": "name",
+                        "in": "query",
+                        "description": "name to filter by",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "List Municipality Cities response",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/FeatureCollection"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
         }
     },
     "components": {

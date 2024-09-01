@@ -83,6 +83,15 @@
                 "api-reference/provinces/list-municipalities",
                 "api-reference/provinces/list-municipalities-geojson"
             ]
+        },
+        {
+            "group": "Municipalities",
+            "pages": [
+                "api-reference/municipalities/get",
+                "api-reference/municipalities/get-geojson",
+                "api-reference/municipalities/list-cities",
+                "api-reference/municipalities/list-cities-geojson"
+            ]
         }
     ]
 }
