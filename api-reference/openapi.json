@@ -315,13 +315,13 @@
                     "countries",
                     "provinces"
                 ],
-                "description": "Get Country Provinces",
+                "description": "List Country Provinces",
                 "summary": "/countries/:id/provinces",
                 "parameters": [
                     {
                         "name": "id",
                         "in": "path",
-                        "description": "ID of Country Provinces to get",
+                        "description": "ID of Country Provinces to list",
                         "required": true,
                         "schema": {
                             "type": "string",
@@ -361,13 +361,13 @@
                     "countries",
                     "provinces"
                 ],
-                "description": "Get Country Provinces GeoJSON",
+                "description": "List Country Provinces GeoJSON",
                 "summary": "/countries/:id/provinces/geojson",
                 "parameters": [
                     {
                         "name": "id",
                         "in": "path",
-                        "description": "ID of Country Provinces to get",
+                        "description": "ID of Country Provinces to list",
                         "required": true,
                         "schema": {
                             "type": "string",
@@ -386,7 +386,162 @@
                 ],
                 "responses": {
                     "200": {
-                        "description": "Get Country Provinces response",
+                        "description": "List Country Provinces response",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/FeatureCollection"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/provinces/{id}": {
+            "get": {
+                "tags": [
+                    "provinces"
+                ],
+                "description": "Get Province",
+                "summary": "/provinces/:id",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "ID of Province to get",
+                        "required": true,
+                        "schema": {
+                            "type": "string",
+                            "format": "uuid"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Get Province response",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/Province"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/provinces/{id}/geojson": {
+            "get": {
+                "tags": [
+                    "provinces"
+                ],
+                "description": "Get Province GeoJSON",
+                "summary": "/provinces/:id/geojson",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "ID of Province to get",
+                        "required": true,
+                        "schema": {
+                            "type": "string",
+                            "format": "uuid"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Get Province GeoJSON response",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/FeatureCollection"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/provinces/{id}/municipalities": {
+            "get": {
+                "tags": [
+                    "provinces",
+                    "municipalities"
+                ],
+                "description": "List Province Municipalities",
+                "summary": "/provinces/:id/municipalities",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "ID of Province Municipalities to list",
+                        "required": true,
+                        "schema": {
+                            "type": "string",
+                            "format": "uuid"
+                        }
+                    },
+                    {
+                        "name": "name",
+                        "in": "query",
+                        "description": "name to filter by",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Get Province Municipalities response",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "array",
+                                    "items": {
+                                        "$ref": "#/components/schemas/Municipality"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/provinces/{id}/municipalities/geojson": {
+            "get": {
+                "tags": [
+                    "provinces",
+                    "municipalities"
+                ],
+                "description": "List Province Municipalities GeoJSON",
+                "summary": "/provinces/:id/municipalities/geojson",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "ID of Province Municipalities to list",
+                        "required": true,
+                        "schema": {
+                            "type": "string",
+                            "format": "uuid"
+                        }
+                    },
+                    {
+                        "name": "name",
+                        "in": "query",
+                        "description": "name to filter by",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "List Province Municipalities response",
                         "content": {
                             "application/json": {
                                 "schema": {

@@ -74,6 +74,15 @@
                 "api-reference/countries/list-provinces",
                 "api-reference/countries/list-provinces-geojson"
             ]
+        },
+        {
+            "group": "Provinces",
+            "pages": [
+                "api-reference/provinces/get",
+                "api-reference/provinces/get-geojson",
+                "api-reference/provinces/list-municipalities",
+                "api-reference/provinces/list-municipalities-geojson"
+            ]
         }
     ]
 }
