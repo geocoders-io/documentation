@@ -17,7 +17,7 @@
     "topbarLinks": [
         {
             "name": "Support",
-            "url": "mailto:hi@geocoders.io"
+            "url": "mailto:support@geocoders.io"
         }
     ],
     "topbarCtaButton": {
@@ -52,11 +52,16 @@
             ]
         },
         {
-            "group": "Geocoding",
+            "group": "Geocode",
             "pages": [
                 "api-reference/geocode/forward",
-                "api-reference/geocode/reverse",
-                "api-reference/geocode/postcode"
+                "api-reference/geocode/reverse"
+            ]
+        },
+        {
+            "group": "Lookup",
+            "pages": [
+                "api-reference/lookup/postcode"
             ]
         }
     ]

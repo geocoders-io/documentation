@@ -32,10 +32,10 @@
                     "content": {
                         "application/json": {
                             "schema": {
-                                "$ref": "#/components/schemas/ForwardGeocodeInput",
+                                "$ref": "#/components/schemas/GeocodeForwardInput",
                                 "example": {
-                                    "street_name": "Nieuwe Binnenweg",
-                                    "house_number": 1
+                                    "streetname": "West-Kruiskade",
+                                    "number": "1"
                                 }
                             }
                         }
@@ -47,10 +47,17 @@
                         "content": {
                             "application/json": {
                                 "schema": {
-                                    "$ref": "#/components/schemas/ForwardGeocodeResponse",
+                                    "$ref": "#/components/schemas/GeocodeForwardResponse",
                                     "example": {
-                                        "latitude": 4.47241704538452,
-                                        "longitude": 51.9170672712528
+                                        "suburb_id": "d24c1500-3e37-461e-98f6-ef54713928e4",
+                                        "building_id": "2bc27c19-bc93-4526-b096-c2a8203c1386",
+                                        "number": "1",
+                                        "suffix": "A",
+                                        "streetname": "West-Kruiskade",
+                                        "postcode": "3014AJ",
+                                        "city": "3014AJ",
+                                        "longitude": 4.470474881149264,
+                                        "latitude": 51.92091314785285
                                     }
                                 }
                             }
@@ -72,10 +79,10 @@
                     "content": {
                         "application/json": {
                             "schema": {
-                                "$ref": "#/components/schemas/ReverseGeocodeInput",
+                                "$ref": "#/components/schemas/GeocodeReverseInput",
                                 "example": {
-                                    "latitude": 51.9170562,
-                                    "longitude": 4.4708004
+                                    "latitude": 51.92091314785285,
+                                    "longitude": 4.470474881149264
                                 }
                             }
                         }
@@ -87,15 +94,15 @@
                         "content": {
                             "application/json": {
                                 "schema": {
-                                    "$ref": "#/components/schemas/ReverseGeocodeResponse",
+                                    "$ref": "#/components/schemas/GeocodeReverseResponse",
                                     "example": {
-                                        "house_number": "27",
-                                        "house_character": null,
-                                        "house_number_addition": null,
-                                        "street_name": "Nieuwe Binnenweg",
-                                        "zipcode": "3014GB",
-                                        "municipality": "Rotterdam",
-                                        "province": "Zuid-Holland"
+                                        "suburb_id": "d24c1500-3e37-461e-98f6-ef54713928e4",
+                                        "building_id": "2bc27c19-bc93-4526-b096-c2a8203c1386",
+                                        "number": "1",
+                                        "suffix": "A",
+                                        "streetname": "West-Kruiskade",
+                                        "postcode": "3014AJ",
+                                        "city": "Rotterdam"
                                     }
                                 }
                             }
@@ -104,22 +111,23 @@
                 }
             }
         },
-        "/geocode/postcode": {
+        "/lookup/postcode": {
             "post": {
                 "tags": [
                     "postcode"
                 ],
-                "description": "Address lookup for given zipcode",
-                "summary": "/geocode/postcode",
+                "description": "Address lookup for given postcode",
+                "summary": "/lookup/postcode",
                 "requestBody": {
                     "description": "Postcode to convert to address",
                     "required": true,
                     "content": {
                         "application/json": {
                             "schema": {
-                                "$ref": "#/components/schemas/PostcodeLookupInput",
+                                "$ref": "#/components/schemas/LookupPostcodeInput",
                                 "example": {
-                                    "zipcode": "3012LA"
+                                    "postcode": "3014AJ",
+                                    "number": "1"
                                 }
                             }
                         }
@@ -127,46 +135,22 @@
                 },
                 "responses": {
                     "200": {
-                        "description": "Reverse geocode response",
+                        "description": "Lookup Postcode response",
                         "content": {
                             "application/json": {
                                 "schema": {
-                                    "$ref": "#/components/schemas/PostcodeLookupResponse",
-                                    "example": [
-                                        {
-                                            "house_number": "6",
-                                            "house_character": null,
-                                            "house_number_addition": "01",
-                                            "street_name": "Eendrachtsplein",
-                                            "zipcode": "3012LA",
-                                            "municipality": "Rotterdam",
-                                            "province": "Zuid-Holland",
-                                            "latitude": 4.47376300030858,
-                                            "longitude": 51.9170599235977
-                                        },
-                                        {
-                                            "house_number": "8",
-                                            "house_character": null,
-                                            "house_number_addition": "SO",
-                                            "street_name": "Eendrachtsplein",
-                                            "zipcode": "3012LA",
-                                            "municipality": "Rotterdam",
-                                            "province": "Zuid-Holland",
-                                            "latitude": 4.47377869163882,
-                                            "longitude": 51.9170388321027
-                                        },
-                                        {
-                                            "house_number": "10",
-                                            "house_character": null,
-                                            "house_number_addition": "01",
-                                            "street_name": "Eendrachtsplein",
-                                            "zipcode": "3012LA",
-                                            "municipality": "Rotterdam",
-                                            "province": "Zuid-Holland",
-                                            "latitude": 4.47385905049655,
-                                            "longitude": 51.9169470522733
-                                        }
-                                    ]
+                                    "$ref": "#/components/schemas/LookupPostcodeResponse",
+                                    "example": {
+                                        "suburb_id": "d24c1500-3e37-461e-98f6-ef54713928e4",
+                                        "building_id": "2bc27c19-bc93-4526-b096-c2a8203c1386",
+                                        "number": "1",
+                                        "suffix": "A",
+                                        "streetname": "West-Kruiskade",
+                                        "postcode": "3014AJ",
+                                        "city": "Rotterdam",
+                                        "longitude": 4.470474881149264,
+                                        "latitude": 51.92091314785285
+                                    }
                                 }
                             }
                         }
@@ -184,23 +168,23 @@
             }
         },
         "schemas": {
-            "ForwardGeocodeInput": {
+            "GeocodeForwardInput": {
                 "type": "object",
                 "required": [
-                    "street_name",
-                    "house_number"
+                    "streetname",
+                    "number"
                 ],
                 "properties": {
-                    "street_name": {
+                    "streetname": {
                         "type": "string"
                     },
-                    "house_number": {
-                        "type": "integer"
-                    },
-                    "house_character": {
+                    "number": {
                         "type": "string"
                     },
-                    "municipality": {
+                    "suffix": {
+                        "type": "string"
+                    },
+                    "suburb": {
                         "type": "string"
                     },
                     "province": {
@@ -208,9 +192,36 @@
                     }
                 }
             },
-            "ForwardGeocodeResponse": {
+            "GeocodeForwardResponse": {
                 "type": "object",
                 "properties": {
+                    "suburb_id": {
+                        "type": "string"
+                    },
+                    "building_id": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "number": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "suffix": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "streetname": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "postcode": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "city": {
+                        "type": "string",
+                        "nullable": true
+                    },
                     "latitude": {
                         "type": "number",
                         "format": "float"
@@ -221,7 +232,7 @@
                     }
                 }
             },
-            "ReverseGeocodeInput": {
+            "GeocodeReverseInput": {
                 "type": "object",
                 "required": [
                     "latitude",
@@ -238,74 +249,79 @@
                     }
                 }
             },
-            "ReverseGeocodeResponse": {
+            "GeocodeReverseResponse": {
                 "type": "object",
                 "properties": {
-                    "house_number": {
-                        "type": "string",
-                        "nullable": true
-                    },
-                    "house_character": {
-                        "type": "string",
-                        "nullable": true
-                    },
-                    "house_number_addition": {
-                        "type": "string",
-                        "nullable": true
-                    },
-                    "street_name": {
+                    "suburb_id": {
                         "type": "string"
                     },
-                    "zipcode": {
-                        "type": "string"
-                    },
-                    "municipality": {
+                    "building_id": {
                         "type": "string",
                         "nullable": true
                     },
-                    "province": {
+                    "number": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "suffix": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "streetname": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "postcode": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "city": {
                         "type": "string",
                         "nullable": true
                     }
                 }
             },
-            "PostcodeLookupInput": {
+            "LookupPostcodeInput": {
                 "type": "object",
                 "required": [
-                    "zipcode"
+                    "postcode",
+                    "number"
                 ],
                 "properties": {
-                    "zipcode": {
+                    "postcode": {
+                        "type": "string"
+                    },
+                    "number": {
                         "type": "string"
                     }
                 }
             },
-            "PostcodeLookupResponse": {
+            "LookupPostcodeResponse": {
                 "type": "object",
                 "properties": {
-                    "house_number": {
-                        "type": "string",
-                        "nullable": true
-                    },
-                    "house_character": {
-                        "type": "string",
-                        "nullable": true
-                    },
-                    "house_number_addition": {
-                        "type": "string",
-                        "nullable": true
-                    },
-                    "street_name": {
+                    "suburb_id": {
                         "type": "string"
                     },
-                    "zipcode": {
-                        "type": "string"
-                    },
-                    "municipality": {
+                    "building_id": {
                         "type": "string",
                         "nullable": true
                     },
-                    "province": {
+                    "number": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "suffix": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "streetname": {
+                        "type": "string"
+                    },
+                    "postcode": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "city": {
                         "type": "string",
                         "nullable": true
                     },
