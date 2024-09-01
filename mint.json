@@ -61,7 +61,8 @@
         {
             "group": "Lookup",
             "pages": [
-                "api-reference/lookup/postcode"
+                "api-reference/lookup/postcode",
+                "api-reference/lookup/street"
             ]
         },
         {

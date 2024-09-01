@@ -158,6 +158,63 @@
                 }
             }
         },
+        "/lookup/street": {
+            "post": {
+                "tags": [
+                    "street"
+                ],
+                "description": "Address lookup for given street",
+                "summary": "/lookup/street",
+                "requestBody": {
+                    "description": "Street to find",
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/LookupStreetInput",
+                                "example": {
+                                    "streetname": "kruiskade",
+                                    "number": "10"
+                                }
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Lookup Street response",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "array",
+                                    "items": {
+                                        "$ref": "#/components/schemas/LookupStreetResponse"
+                                    },
+                                    "example": [
+                                        {
+                                            "streetname": "Kruiskade",
+                                            "number": "10",
+                                            "city": "Rotterdam",
+                                            "postcode": "3012EH",
+                                            "longitude": 4.477027441114248,
+                                            "latitude": 51.922997322199684
+                                        },
+                                        {
+                                            "streetname": "West-Kruiskade",
+                                            "number": "10",
+                                            "city": "Rotterdam",
+                                            "postcode": "3014AP",
+                                            "longitude": 4.470542939140832,
+                                            "latitude": 51.92064113986289
+                                        }
+                                    ]
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
         "/countries": {
             "get": {
                 "tags": [
@@ -1375,6 +1432,46 @@
                     "city": {
                         "type": "string",
                         "nullable": true
+                    },
+                    "latitude": {
+                        "type": "number",
+                        "format": "float"
+                    },
+                    "longitude": {
+                        "type": "number",
+                        "format": "float"
+                    }
+                }
+            },
+            "LookupStreetInput": {
+                "type": "object",
+                "required": [
+                    "streetname"
+                ],
+                "properties": {
+                    "streetname": {
+                        "type": "string"
+                    },
+                    "number": {
+                        "type": "string"
+                    }
+                }
+            },
+            "LookupStreetResponse": {
+                "type": "object",
+                "properties": {
+                    "streetname": {
+                        "type": "string"
+                    },
+                    "number": {
+                        "type": "string"
+                    },
+                    "city": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "postcode": {
+                        "type": "string"
                     },
                     "latitude": {
                         "type": "number",
