@@ -157,6 +157,1051 @@
                     }
                 }
             }
+        },
+        "/countries": {
+            "get": {
+                "tags": [
+                    "countries"
+                ],
+                "description": "List Countries",
+                "summary": "/countries",
+                "parameters": [
+                    {
+                        "name": "name",
+                        "in": "query",
+                        "description": "name to filter by",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "country_code",
+                        "in": "query",
+                        "description": "",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "List Countries response",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "array",
+                                    "items": {
+                                        "$ref": "#/components/schemas/Country"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/countries/geojson": {
+            "get": {
+                "tags": [
+                    "countries"
+                ],
+                "description": "List Countries GeoJSON",
+                "summary": "/countries/geojson",
+                "parameters": [
+                    {
+                        "name": "name",
+                        "in": "query",
+                        "description": "name to filter by",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "country_code",
+                        "in": "query",
+                        "description": "",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "List Countries GeoJSON response",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/FeatureCollection"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/countries/{id}": {
+            "get": {
+                "tags": [
+                    "countries"
+                ],
+                "description": "Get Country",
+                "summary": "/countries/:id",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "ID of Country to get",
+                        "required": true,
+                        "schema": {
+                            "type": "string",
+                            "format": "uuid"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Get Country response",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/Country"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/countries/{id}/geojson": {
+            "get": {
+                "tags": [
+                    "countries"
+                ],
+                "description": "Get Country GeoJSON",
+                "summary": "/countries/:id/geojson",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "ID of Country to get",
+                        "required": true,
+                        "schema": {
+                            "type": "string",
+                            "format": "uuid"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Get Country GeoJSON response",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/FeatureCollection"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/countries/{id}/provinces": {
+            "get": {
+                "tags": [
+                    "countries",
+                    "provinces"
+                ],
+                "description": "List Country Provinces",
+                "summary": "/countries/:id/provinces",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "ID of Country Provinces to list",
+                        "required": true,
+                        "schema": {
+                            "type": "string",
+                            "format": "uuid"
+                        }
+                    },
+                    {
+                        "name": "name",
+                        "in": "query",
+                        "description": "name to filter by",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Get Country Provinces response",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "array",
+                                    "items": {
+                                        "$ref": "#/components/schemas/Province"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/countries/{id}/provinces/geojson": {
+            "get": {
+                "tags": [
+                    "countries",
+                    "provinces"
+                ],
+                "description": "List Country Provinces GeoJSON",
+                "summary": "/countries/:id/provinces/geojson",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "ID of Country Provinces to list",
+                        "required": true,
+                        "schema": {
+                            "type": "string",
+                            "format": "uuid"
+                        }
+                    },
+                    {
+                        "name": "name",
+                        "in": "query",
+                        "description": "name to filter by",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "List Country Provinces response",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/FeatureCollection"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/provinces/{id}": {
+            "get": {
+                "tags": [
+                    "provinces"
+                ],
+                "description": "Get Province",
+                "summary": "/provinces/:id",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "ID of Province to get",
+                        "required": true,
+                        "schema": {
+                            "type": "string",
+                            "format": "uuid"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Get Province response",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/Province"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/provinces/{id}/geojson": {
+            "get": {
+                "tags": [
+                    "provinces"
+                ],
+                "description": "Get Province GeoJSON",
+                "summary": "/provinces/:id/geojson",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "ID of Province to get",
+                        "required": true,
+                        "schema": {
+                            "type": "string",
+                            "format": "uuid"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Get Province GeoJSON response",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/FeatureCollection"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/provinces/{id}/municipalities": {
+            "get": {
+                "tags": [
+                    "provinces",
+                    "municipalities"
+                ],
+                "description": "List Province Municipalities",
+                "summary": "/provinces/:id/municipalities",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "ID of Province Municipalities to list",
+                        "required": true,
+                        "schema": {
+                            "type": "string",
+                            "format": "uuid"
+                        }
+                    },
+                    {
+                        "name": "name",
+                        "in": "query",
+                        "description": "name to filter by",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Get Province Municipalities response",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "array",
+                                    "items": {
+                                        "$ref": "#/components/schemas/Municipality"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/provinces/{id}/municipalities/geojson": {
+            "get": {
+                "tags": [
+                    "provinces",
+                    "municipalities"
+                ],
+                "description": "List Province Municipalities GeoJSON",
+                "summary": "/provinces/:id/municipalities/geojson",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "ID of Province Municipalities to list",
+                        "required": true,
+                        "schema": {
+                            "type": "string",
+                            "format": "uuid"
+                        }
+                    },
+                    {
+                        "name": "name",
+                        "in": "query",
+                        "description": "name to filter by",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "List Province Municipalities response",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/FeatureCollection"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/municipalities/{id}": {
+            "get": {
+                "tags": [
+                    "municipalities"
+                ],
+                "description": "Get Municipality",
+                "summary": "/municipalities/:id",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "ID of Municipality to get",
+                        "required": true,
+                        "schema": {
+                            "type": "string",
+                            "format": "uuid"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Get Municipality response",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/Municipality"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/municipalities/{id}/geojson": {
+            "get": {
+                "tags": [
+                    "municipalities"
+                ],
+                "description": "Get Municipality GeoJSON",
+                "summary": "/municipalities/:id/geojson",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "ID of Municipality to get",
+                        "required": true,
+                        "schema": {
+                            "type": "string",
+                            "format": "uuid"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Get Municipality GeoJSON response",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/FeatureCollection"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/municipalities/{id}/cities": {
+            "get": {
+                "tags": [
+                    "municipalities",
+                    "cities"
+                ],
+                "description": "List Municipality Cities",
+                "summary": "/municipalities/:id/cities",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "ID of Municipality Cities to list",
+                        "required": true,
+                        "schema": {
+                            "type": "string",
+                            "format": "uuid"
+                        }
+                    },
+                    {
+                        "name": "name",
+                        "in": "query",
+                        "description": "name to filter by",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Get Municipality Cities response",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "array",
+                                    "items": {
+                                        "$ref": "#/components/schemas/City"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/municipalities/{id}/cities/geojson": {
+            "get": {
+                "tags": [
+                    "municipalities",
+                    "cities"
+                ],
+                "description": "List Municipality Cities GeoJSON",
+                "summary": "/municipalities/:id/cities/geojson",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "ID of Municipality Cities to list",
+                        "required": true,
+                        "schema": {
+                            "type": "string",
+                            "format": "uuid"
+                        }
+                    },
+                    {
+                        "name": "name",
+                        "in": "query",
+                        "description": "name to filter by",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "List Municipality Cities response",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/FeatureCollection"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/cities/{id}": {
+            "get": {
+                "tags": [
+                    "cities"
+                ],
+                "description": "Get City",
+                "summary": "/cities/:id",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "ID of City to get",
+                        "required": true,
+                        "schema": {
+                            "type": "string",
+                            "format": "uuid"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Get City response",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/City"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/cities/{id}/geojson": {
+            "get": {
+                "tags": [
+                    "cities"
+                ],
+                "description": "Get City GeoJSON",
+                "summary": "/cities/:id/geojson",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "ID of City to get",
+                        "required": true,
+                        "schema": {
+                            "type": "string",
+                            "format": "uuid"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Get City GeoJSON response",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/FeatureCollection"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/cities/{id}/suburbs": {
+            "get": {
+                "tags": [
+                    "cities",
+                    "suburbs"
+                ],
+                "description": "List City Suburbs",
+                "summary": "/cities/:id/suburbs",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "ID of City Suburbs to list",
+                        "required": true,
+                        "schema": {
+                            "type": "string",
+                            "format": "uuid"
+                        }
+                    },
+                    {
+                        "name": "name",
+                        "in": "query",
+                        "description": "name to filter by",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Get City Suburbs response",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "array",
+                                    "items": {
+                                        "$ref": "#/components/schemas/Suburb"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/cities/{id}/suburbs/geojson": {
+            "get": {
+                "tags": [
+                    "cities",
+                    "suburbs"
+                ],
+                "description": "List City Suburbs GeoJSON",
+                "summary": "/cities/:id/suburbs/geojson",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "ID of City Suburbs to list",
+                        "required": true,
+                        "schema": {
+                            "type": "string",
+                            "format": "uuid"
+                        }
+                    },
+                    {
+                        "name": "name",
+                        "in": "query",
+                        "description": "name to filter by",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "List City Suburbs response",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/FeatureCollection"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/suburbs/{id}": {
+            "get": {
+                "tags": [
+                    "suburbs"
+                ],
+                "description": "Get Suburb",
+                "summary": "/suburbs/:id",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "ID of Suburb to get",
+                        "required": true,
+                        "schema": {
+                            "type": "string",
+                            "format": "uuid"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Get Suburb response",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/Suburb"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/suburbs/{id}/geojson": {
+            "get": {
+                "tags": [
+                    "suburbs"
+                ],
+                "description": "Get Suburb GeoJSON",
+                "summary": "/suburbs/:id/geojson",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "ID of Suburb to get",
+                        "required": true,
+                        "schema": {
+                            "type": "string",
+                            "format": "uuid"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Get Suburb GeoJSON response",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/FeatureCollection"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/suburbs/{id}/buildings": {
+            "get": {
+                "tags": [
+                    "suburbs",
+                    "buildings"
+                ],
+                "description": "List Suburb Buildings",
+                "summary": "/suburbs/:id/buildings",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "ID of Suburb Buildings to list",
+                        "required": true,
+                        "schema": {
+                            "type": "string",
+                            "format": "uuid"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Get Suburb Buildings response",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "array",
+                                    "items": {
+                                        "$ref": "#/components/schemas/Building"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/suburbs/{id}/buildings/geojson": {
+            "get": {
+                "tags": [
+                    "suburbs",
+                    "buildings"
+                ],
+                "description": "List Suburb Buildings GeoJSON",
+                "summary": "/suburbs/:id/buildings/geojson",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "ID of Suburb Buildings to list",
+                        "required": true,
+                        "schema": {
+                            "type": "string",
+                            "format": "uuid"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "List Suburb Buildings response",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/FeatureCollection"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/buildings/{id}": {
+            "get": {
+                "tags": [
+                    "buildings"
+                ],
+                "description": "Get Building",
+                "summary": "/buildings/:id",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "ID of Building to get",
+                        "required": true,
+                        "schema": {
+                            "type": "string",
+                            "format": "uuid"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Get Building response",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/Building"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/buildings/{id}/geojson": {
+            "get": {
+                "tags": [
+                    "buildings"
+                ],
+                "description": "Get Building GeoJSON",
+                "summary": "/buildings/:id/geojson",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "ID of Building to get",
+                        "required": true,
+                        "schema": {
+                            "type": "string",
+                            "format": "uuid"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Get Building GeoJSON response",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/FeatureCollection"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/buildings/{id}/addresses": {
+            "get": {
+                "tags": [
+                    "buildings",
+                    "addresses"
+                ],
+                "description": "List Building Addresses",
+                "summary": "/buildings/:id/addresses",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "ID of Building Addresses to list",
+                        "required": true,
+                        "schema": {
+                            "type": "string",
+                            "format": "uuid"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Get Building Addresses response",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "array",
+                                    "items": {
+                                        "$ref": "#/components/schemas/Address"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/buildings/{id}/addresses/geojson": {
+            "get": {
+                "tags": [
+                    "buildings",
+                    "addresses"
+                ],
+                "description": "List Building Addresses GeoJSON",
+                "summary": "/buildings/:id/addresses/geojson",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "ID of Building Addresses to list",
+                        "required": true,
+                        "schema": {
+                            "type": "string",
+                            "format": "uuid"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "List Building Addresses response",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/FeatureCollection"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/addresses/{id}": {
+            "get": {
+                "tags": [
+                    "addresses"
+                ],
+                "description": "Get Address",
+                "summary": "/addresses/:id",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "ID of Address to get",
+                        "required": true,
+                        "schema": {
+                            "type": "string",
+                            "format": "uuid"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Get Address response",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/Address"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/addresses/{id}/geojson": {
+            "get": {
+                "tags": [
+                    "addresses"
+                ],
+                "description": "Get Address GeoJSON",
+                "summary": "/addresses/:id/geojson",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "ID of Address to get",
+                        "required": true,
+                        "schema": {
+                            "type": "string",
+                            "format": "uuid"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Get Address GeoJSON response",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/FeatureCollection"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
         }
     },
     "components": {
@@ -196,10 +1241,12 @@
                 "type": "object",
                 "properties": {
                     "suburb_id": {
-                        "type": "string"
+                        "type": "string",
+                        "format": "uuid"
                     },
                     "building_id": {
                         "type": "string",
+                        "format": "uuid",
                         "nullable": true
                     },
                     "number": {
@@ -253,10 +1300,12 @@
                 "type": "object",
                 "properties": {
                     "suburb_id": {
-                        "type": "string"
+                        "type": "string",
+                        "format": "uuid"
                     },
                     "building_id": {
                         "type": "string",
+                        "format": "uuid",
                         "nullable": true
                     },
                     "number": {
@@ -300,10 +1349,12 @@
                 "type": "object",
                 "properties": {
                     "suburb_id": {
-                        "type": "string"
+                        "type": "string",
+                        "format": "uuid"
                     },
                     "building_id": {
                         "type": "string",
+                        "format": "uuid",
                         "nullable": true
                     },
                     "number": {
@@ -333,6 +1384,277 @@
                         "type": "number",
                         "format": "float"
                     }
+                }
+            },
+            "Country": {
+                "type": "object",
+                "properties": {
+                    "id": {
+                        "type": "string",
+                        "format": "uuid"
+                    },
+                    "name": {
+                        "type": "string"
+                    },
+                    "country_code": {
+                        "type": "string"
+                    },
+                    "alt_name": {
+                        "type": "string"
+                    },
+                    "local_identifier": {
+                        "type": "string"
+                    }
+                }
+            },
+            "Province": {
+                "type": "object",
+                "properties": {
+                    "id": {
+                        "type": "string",
+                        "format": "uuid"
+                    },
+                    "country_id": {
+                        "type": "string",
+                        "format": "uuid"
+                    },
+                    "name": {
+                        "type": "string"
+                    },
+                    "local_identifier": {
+                        "type": "string"
+                    }
+                }
+            },
+            "Municipality": {
+                "type": "object",
+                "properties": {
+                    "id": {
+                        "type": "string",
+                        "format": "uuid"
+                    },
+                    "province_id": {
+                        "type": "string",
+                        "format": "uuid"
+                    },
+                    "name": {
+                        "type": "string"
+                    },
+                    "local_identifier": {
+                        "type": "string"
+                    }
+                }
+            },
+            "City": {
+                "type": "object",
+                "properties": {
+                    "id": {
+                        "type": "string",
+                        "format": "uuid"
+                    },
+                    "municipality_id": {
+                        "type": "string",
+                        "format": "uuid"
+                    },
+                    "name": {
+                        "type": "string"
+                    },
+                    "local_identifier": {
+                        "type": "string"
+                    }
+                }
+            },
+            "Suburb": {
+                "type": "object",
+                "properties": {
+                    "id": {
+                        "type": "string",
+                        "format": "uuid"
+                    },
+                    "city_id": {
+                        "type": "string",
+                        "format": "uuid"
+                    },
+                    "name": {
+                        "type": "string"
+                    },
+                    "local_identifier": {
+                        "type": "string"
+                    }
+                }
+            },
+            "Building": {
+                "type": "object",
+                "properties": {
+                    "id": {
+                        "type": "string",
+                        "format": "uuid"
+                    },
+                    "suburb_id": {
+                        "type": "string",
+                        "format": "uuid"
+                    },
+                    "building_year": {
+                        "type": "string"
+                    },
+                    "local_identifier": {
+                        "type": "string"
+                    }
+                }
+            },
+            "Address": {
+                "type": "object",
+                "properties": {
+                    "id": {
+                        "type": "string",
+                        "format": "uuid"
+                    },
+                    "suburb_id": {
+                        "type": "string",
+                        "format": "uuid"
+                    },
+                    "building_id": {
+                        "type": "string",
+                        "format": "uuid"
+                    },
+                    "number": {
+                        "type": "string"
+                    },
+                    "suffix": {
+                        "type": "string"
+                    },
+                    "streetname": {
+                        "type": "string",
+                        "format": "uuid"
+                    },
+                    "postcode": {
+                        "type": "string"
+                    },
+                    "city": {
+                        "type": "string"
+                    }
+                }
+            },
+            "FeatureCollection": {
+                "description": "GeoJSON 'FeatureCollection' object",
+                "externalDocs": {
+                    "url": "https://tools.ietf.org/html/rfc7946#section-3.3"
+                },
+                "allOf": [
+                    {
+                        "$ref": "#/components/schemas/GeoJsonObject"
+                    },
+                    {
+                        "type": "object",
+                        "required": [
+                            "features"
+                        ],
+                        "properties": {
+                            "features": {
+                                "type": "array",
+                                "items": {
+                                    "$ref": "#/components/schemas/Feature"
+                                }
+                            }
+                        }
+                    }
+                ]
+            },
+            "Feature": {
+                "description": "GeoJSON 'Feature' object",
+                "externalDocs": {
+                    "url": "https://tools.ietf.org/html/rfc7946#section-3.2"
+                },
+                "allOf": [
+                    {
+                        "$ref": "#/components/schemas/GeoJsonObject"
+                    },
+                    {
+                        "type": "object",
+                        "required": [
+                            "geometry",
+                            "properties"
+                        ],
+                        "properties": {
+                            "geometry": {
+                                "allOf": [
+                                    {
+                                        "nullable": true
+                                    },
+                                    {
+                                        "$ref": "#/components/schemas/Geometry"
+                                    }
+                                ]
+                            },
+                            "properties": {
+                                "type": "object",
+                                "nullable": true
+                            }
+                        }
+                    }
+                ]
+            },
+            "Geometry": {
+                "description": "Abstract type for all GeoJSON object except Feature and FeatureCollection\n",
+                "externalDocs": {
+                    "url": "https://tools.ietf.org/html/rfc7946#section-3"
+                },
+                "allOf": [
+                    {
+                        "$ref": "#/components/schemas/GeoJsonObject"
+                    },
+                    {
+                        "type": "object",
+                        "properties": {
+                            "type": {
+                                "type": "string",
+                                "enum": [
+                                    "Point",
+                                    "MultiPoint",
+                                    "LineString",
+                                    "MultiLineString",
+                                    "Polygon",
+                                    "MultiPolygon",
+                                    "GeometryCollection"
+                                ]
+                            }
+                        },
+                        "required": [
+                            "type"
+                        ],
+                        "discriminator": {
+                            "propertyName": "type"
+                        }
+                    }
+                ]
+            },
+            "GeoJsonObject": {
+                "description": "GeoJSON object The coordinate reference system for all GeoJSON coordinates is a geographic coordinate reference system, using the World Geodetic System 1984 (WGS 84) datum, with longitude and latitude units of decimal degrees. This is equivalent to the coordinate reference system identified by the Open Geospatial Consortium (OGC) URN An OPTIONAL third-position element SHALL be the height in meters above or below the WGS 84 reference ellipsoid. In the absence of elevation values, applications sensitive to height or depth SHOULD interpret positions as being at local ground or sea level.\n",
+                "externalDocs": {
+                    "url": "https://tools.ietf.org/html/rfc7946#section-3"
+                },
+                "type": "object",
+                "properties": {
+                    "type": {
+                        "type": "string",
+                        "enum": [
+                            "Feature",
+                            "FeatureCollection",
+                            "Point",
+                            "MultiPoint",
+                            "LineString",
+                            "MultiLineString",
+                            "Polygon",
+                            "MultiPolygon",
+                            "GeometryCollection"
+                        ]
+                    }
+                },
+                "required": [
+                    "type"
+                ],
+                "discriminator": {
+                    "propertyName": "type"
                 }
             }
         }

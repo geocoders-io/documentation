@@ -6,12 +6,12 @@
     },
     "favicon": "/favicon.png",
     "colors": {
-        "primary": "#B99470",
-        "light": "#F7DCB9",
-        "dark": "#DEAC80",
+        "primary": "#19e299",
+        "light": "#19e299",
+        "dark": "#19e299",
         "anchors": {
-            "from": "#B99470",
-            "to": "#F7DCB9"
+            "from": "#19e299",
+            "to": "#19e299"
         }
     },
     "topbarLinks": [
@@ -62,6 +62,53 @@
             "group": "Lookup",
             "pages": [
                 "api-reference/lookup/postcode"
+            ]
+        },
+        {
+            "group": "Countries",
+            "pages": [
+                "api-reference/countries/list",
+                "api-reference/countries/list-geojson",
+                "api-reference/countries/get",
+                "api-reference/countries/get-geojson",
+                "api-reference/countries/list-provinces",
+                "api-reference/countries/list-provinces-geojson"
+            ]
+        },
+        {
+            "group": "Provinces",
+            "pages": [
+                "api-reference/provinces/get",
+                "api-reference/provinces/get-geojson",
+                "api-reference/provinces/list-municipalities",
+                "api-reference/provinces/list-municipalities-geojson"
+            ]
+        },
+        {
+            "group": "Municipalities",
+            "pages": [
+                "api-reference/municipalities/get",
+                "api-reference/municipalities/get-geojson",
+                "api-reference/municipalities/list-cities",
+                "api-reference/municipalities/list-cities-geojson"
+            ]
+        },
+        {
+            "group": "Cities",
+            "pages": [
+                "api-reference/cities/get",
+                "api-reference/cities/get-geojson",
+                "api-reference/cities/list-suburbs",
+                "api-reference/cities/list-suburbs-geojson"
+            ]
+        },
+        {
+            "group": "Suburbs",
+            "pages": [
+                "api-reference/suburbs/get",
+                "api-reference/suburbs/get-geojson",
+                "api-reference/suburbs/list-buildings",
+                "api-reference/suburbs/list-buildings-geojson"
             ]
         }
     ]
