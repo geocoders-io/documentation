@@ -257,7 +257,8 @@
                         "description": "ID of Country to get",
                         "required": true,
                         "schema": {
-                            "type": "string"
+                            "type": "string",
+                            "format": "uuid"
                         }
                     }
                 ],
@@ -289,7 +290,8 @@
                         "description": "ID of Country to get",
                         "required": true,
                         "schema": {
-                            "type": "string"
+                            "type": "string",
+                            "format": "uuid"
                         }
                     }
                 ],
@@ -345,10 +347,12 @@
                 "type": "object",
                 "properties": {
                     "suburb_id": {
-                        "type": "string"
+                        "type": "string",
+                        "format": "uuid"
                     },
                     "building_id": {
                         "type": "string",
+                        "format": "uuid",
                         "nullable": true
                     },
                     "number": {
@@ -402,10 +406,12 @@
                 "type": "object",
                 "properties": {
                     "suburb_id": {
-                        "type": "string"
+                        "type": "string",
+                        "format": "uuid"
                     },
                     "building_id": {
                         "type": "string",
+                        "format": "uuid",
                         "nullable": true
                     },
                     "number": {
@@ -449,10 +455,12 @@
                 "type": "object",
                 "properties": {
                     "suburb_id": {
-                        "type": "string"
+                        "type": "string",
+                        "format": "uuid"
                     },
                     "building_id": {
                         "type": "string",
+                        "format": "uuid",
                         "nullable": true
                     },
                     "number": {
@@ -488,7 +496,8 @@
                 "type": "object",
                 "properties": {
                     "id": {
-                        "type": "string"
+                        "type": "string",
+                        "format": "uuid"
                     },
                     "name": {
                         "type": "string"
