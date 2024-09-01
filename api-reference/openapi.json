@@ -202,6 +202,47 @@
                 }
             }
         },
+        "/countries/geojson": {
+            "get": {
+                "tags": [
+                    "countries"
+                ],
+                "description": "List Countries GeoJSON",
+                "summary": "/countries/geojson",
+                "parameters": [
+                    {
+                        "name": "name",
+                        "in": "query",
+                        "description": "name to filter by",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "country_code",
+                        "in": "query",
+                        "description": "",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "List Countries GeoJSON response",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/FeatureCollection"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
         "/countries/{id}": {
             "get": {
                 "tags": [
@@ -227,6 +268,38 @@
                             "application/json": {
                                 "schema": {
                                     "$ref": "#/components/schemas/Country"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/countries/{id}/geojson": {
+            "get": {
+                "tags": [
+                    "countries"
+                ],
+                "description": "Get Country GeoJSON",
+                "summary": "/countries/:id/geojson",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "ID of Country to get",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Get Country GeoJSON response",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/FeatureCollection"
                                 }
                             }
                         }
@@ -429,6 +502,128 @@
                     "local_identifier": {
                         "type": "string"
                     }
+                }
+            },
+            "FeatureCollection": {
+                "description": "GeoJSON 'FeatureCollection' object",
+                "externalDocs": {
+                    "url": "https://tools.ietf.org/html/rfc7946#section-3.3"
+                },
+                "allOf": [
+                    {
+                        "$ref": "#/components/schemas/GeoJsonObject"
+                    },
+                    {
+                        "type": "object",
+                        "required": [
+                            "features"
+                        ],
+                        "properties": {
+                            "features": {
+                                "type": "array",
+                                "items": {
+                                    "$ref": "#/components/schemas/Feature"
+                                }
+                            }
+                        }
+                    }
+                ]
+            },
+            "Feature": {
+                "description": "GeoJSON 'Feature' object",
+                "externalDocs": {
+                    "url": "https://tools.ietf.org/html/rfc7946#section-3.2"
+                },
+                "allOf": [
+                    {
+                        "$ref": "#/components/schemas/GeoJsonObject"
+                    },
+                    {
+                        "type": "object",
+                        "required": [
+                            "geometry",
+                            "properties"
+                        ],
+                        "properties": {
+                            "geometry": {
+                                "allOf": [
+                                    {
+                                        "nullable": true
+                                    },
+                                    {
+                                        "$ref": "#/components/schemas/Geometry"
+                                    }
+                                ]
+                            },
+                            "properties": {
+                                "type": "object",
+                                "nullable": true
+                            }
+                        }
+                    }
+                ]
+            },
+            "Geometry": {
+                "description": "Abstract type for all GeoJSON object except Feature and FeatureCollection\n",
+                "externalDocs": {
+                    "url": "https://tools.ietf.org/html/rfc7946#section-3"
+                },
+                "allOf": [
+                    {
+                        "$ref": "#/components/schemas/GeoJsonObject"
+                    },
+                    {
+                        "type": "object",
+                        "properties": {
+                            "type": {
+                                "type": "string",
+                                "enum": [
+                                    "Point",
+                                    "MultiPoint",
+                                    "LineString",
+                                    "MultiLineString",
+                                    "Polygon",
+                                    "MultiPolygon",
+                                    "GeometryCollection"
+                                ]
+                            }
+                        },
+                        "required": [
+                            "type"
+                        ],
+                        "discriminator": {
+                            "propertyName": "type"
+                        }
+                    }
+                ]
+            },
+            "GeoJsonObject": {
+                "description": "GeoJSON object The coordinate reference system for all GeoJSON coordinates is a geographic coordinate reference system, using the World Geodetic System 1984 (WGS 84) datum, with longitude and latitude units of decimal degrees. This is equivalent to the coordinate reference system identified by the Open Geospatial Consortium (OGC) URN An OPTIONAL third-position element SHALL be the height in meters above or below the WGS 84 reference ellipsoid. In the absence of elevation values, applications sensitive to height or depth SHOULD interpret positions as being at local ground or sea level.\n",
+                "externalDocs": {
+                    "url": "https://tools.ietf.org/html/rfc7946#section-3"
+                },
+                "type": "object",
+                "properties": {
+                    "type": {
+                        "type": "string",
+                        "enum": [
+                            "Feature",
+                            "FeatureCollection",
+                            "Point",
+                            "MultiPoint",
+                            "LineString",
+                            "MultiLineString",
+                            "Polygon",
+                            "MultiPolygon",
+                            "GeometryCollection"
+                        ]
+                    }
+                },
+                "required": [
+                    "type"
+                ],
+                "discriminator": {
+                    "propertyName": "type"
                 }
             }
         }
