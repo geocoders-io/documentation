@@ -92,6 +92,15 @@
                 "api-reference/municipalities/list-cities",
                 "api-reference/municipalities/list-cities-geojson"
             ]
+        },
+        {
+            "group": "Cities",
+            "pages": [
+                "api-reference/cities/get",
+                "api-reference/cities/get-geojson",
+                "api-reference/cities/list-suburbs",
+                "api-reference/cities/list-suburbs-geojson"
+            ]
         }
     ]
 }
