@@ -1,115 +1,108 @@
 {
-    "name": "Geocoders API documentation",
-    "logo": {
-        "dark": "/logo/dark.png",
-        "light": "/logo/light.png"
+  "name": "Geocoders API documentation",
+  "logo": {
+    "dark": "/logo/dark.png",
+    "light": "/logo/light.png"
+  },
+  "favicon": "/favicon.png",
+  "colors": {
+    "primary": "#19e299",
+    "light": "#19e299",
+    "dark": "#19e299",
+    "anchors": {
+      "from": "#19e299",
+      "to": "#19e299"
+    }
+  },
+  "topbarLinks": [
+    {
+      "name": "Support",
+      "url": "mailto:support@geocoders.io"
+    }
+  ],
+  "topbarCtaButton": {
+    "name": "Dashboard",
+    "url": "https://dashboard.geocoders.io"
+  },
+  "tabs": [
+    {
+      "name": "API Reference",
+      "url": "api-reference"
+    }
+  ],
+  "anchors": [
+    {
+      "name": "Documentation",
+      "icon": "book-open-cover",
+      "url": "https://docs.geocoders.io"
+    }
+  ],
+  "navigation": [
+    {
+      "group": "Getting Started",
+      "pages": ["home", "quick-start", "authorization"]
     },
-    "favicon": "/favicon.png",
-    "colors": {
-        "primary": "#19e299",
-        "light": "#19e299",
-        "dark": "#19e299",
-        "anchors": {
-            "from": "#19e299",
-            "to": "#19e299"
-        }
+    {
+      "group": "API Documentation",
+      "pages": ["api-reference/introduction"]
     },
-    "topbarLinks": [
-        {
-            "name": "Support",
-            "url": "mailto:support@geocoders.io"
-        }
-    ],
-    "topbarCtaButton": {
-        "name": "Dashboard",
-        "url": "https://dashboard.geocoders.io"
+    {
+      "group": "Geocode",
+      "pages": [
+        "api-reference/geocode/forward",
+        "api-reference/geocode/reverse"
+      ]
     },
-    "tabs": [
-        {
-            "name": "API Reference",
-            "url": "api-reference"
-        }
-    ],
-    "anchors": [
-        {
-            "name": "Documentation",
-            "icon": "book-open-cover",
-            "url": "https://docs.geocoders.io"
-        }
-    ],
-    "navigation": [
-        {
-            "group": "Get Started",
-            "pages": [
-                "introduction",
-                "authorization"
-            ]
-        },
-        {
-            "group": "API Documentation",
-            "pages": [
-                "api-reference/introduction"
-            ]
-        },
-        {
-            "group": "Geocode",
-            "pages": [
-                "api-reference/geocode/forward",
-                "api-reference/geocode/reverse"
-            ]
-        },
-        {
-            "group": "Lookup",
-            "pages": [
-                "api-reference/lookup/postcode"
-            ]
-        },
-        {
-            "group": "Countries",
-            "pages": [
-                "api-reference/countries/list",
-                "api-reference/countries/list-geojson",
-                "api-reference/countries/get",
-                "api-reference/countries/get-geojson",
-                "api-reference/countries/list-provinces",
-                "api-reference/countries/list-provinces-geojson"
-            ]
-        },
-        {
-            "group": "Provinces",
-            "pages": [
-                "api-reference/provinces/get",
-                "api-reference/provinces/get-geojson",
-                "api-reference/provinces/list-municipalities",
-                "api-reference/provinces/list-municipalities-geojson"
-            ]
-        },
-        {
-            "group": "Municipalities",
-            "pages": [
-                "api-reference/municipalities/get",
-                "api-reference/municipalities/get-geojson",
-                "api-reference/municipalities/list-cities",
-                "api-reference/municipalities/list-cities-geojson"
-            ]
-        },
-        {
-            "group": "Cities",
-            "pages": [
-                "api-reference/cities/get",
-                "api-reference/cities/get-geojson",
-                "api-reference/cities/list-suburbs",
-                "api-reference/cities/list-suburbs-geojson"
-            ]
-        },
-        {
-            "group": "Suburbs",
-            "pages": [
-                "api-reference/suburbs/get",
-                "api-reference/suburbs/get-geojson",
-                "api-reference/suburbs/list-buildings",
-                "api-reference/suburbs/list-buildings-geojson"
-            ]
-        }
-    ]
+    {
+      "group": "Lookup",
+      "pages": ["api-reference/lookup/postcode"]
+    },
+    {
+      "group": "Countries",
+      "pages": [
+        "api-reference/countries/list",
+        "api-reference/countries/list-geojson",
+        "api-reference/countries/get",
+        "api-reference/countries/get-geojson",
+        "api-reference/countries/list-provinces",
+        "api-reference/countries/list-provinces-geojson"
+      ]
+    },
+    {
+      "group": "Provinces",
+      "pages": [
+        "api-reference/provinces/get",
+        "api-reference/provinces/get-geojson",
+        "api-reference/provinces/list-municipalities",
+        "api-reference/provinces/list-municipalities-geojson"
+      ]
+    },
+    {
+      "group": "Municipalities",
+      "pages": [
+        "api-reference/municipalities/get",
+        "api-reference/municipalities/get-geojson",
+        "api-reference/municipalities/list-cities",
+        "api-reference/municipalities/list-cities-geojson"
+      ]
+    },
+    {
+      "group": "Cities",
+      "pages": [
+        "api-reference/cities/get",
+        "api-reference/cities/get-geojson",
+        "api-reference/cities/list-suburbs",
+        "api-reference/cities/list-suburbs-geojson"
+      ]
+    },
+    {
+      "group": "Suburbs",
+      "pages": [
+        "api-reference/suburbs/get",
+        "api-reference/suburbs/get-geojson",
+        "api-reference/suburbs/list-buildings",
+        "api-reference/suburbs/list-buildings-geojson"
+      ]
+    }
+  ]
 }
