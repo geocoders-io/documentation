@@ -999,6 +999,209 @@
                     }
                 }
             }
+        },
+        "/buildings/{id}": {
+            "get": {
+                "tags": [
+                    "buildings"
+                ],
+                "description": "Get Building",
+                "summary": "/buildings/:id",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "ID of Building to get",
+                        "required": true,
+                        "schema": {
+                            "type": "string",
+                            "format": "uuid"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Get Building response",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/Building"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/buildings/{id}/geojson": {
+            "get": {
+                "tags": [
+                    "buildings"
+                ],
+                "description": "Get Building GeoJSON",
+                "summary": "/buildings/:id/geojson",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "ID of Building to get",
+                        "required": true,
+                        "schema": {
+                            "type": "string",
+                            "format": "uuid"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Get Building GeoJSON response",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/FeatureCollection"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/buildings/{id}/addresses": {
+            "get": {
+                "tags": [
+                    "buildings",
+                    "addresses"
+                ],
+                "description": "List Building Addresses",
+                "summary": "/buildings/:id/addresses",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "ID of Building Addresses to list",
+                        "required": true,
+                        "schema": {
+                            "type": "string",
+                            "format": "uuid"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Get Building Addresses response",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "array",
+                                    "items": {
+                                        "$ref": "#/components/schemas/Address"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/buildings/{id}/addresses/geojson": {
+            "get": {
+                "tags": [
+                    "buildings",
+                    "addresses"
+                ],
+                "description": "List Building Addresses GeoJSON",
+                "summary": "/buildings/:id/addresses/geojson",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "ID of Building Addresses to list",
+                        "required": true,
+                        "schema": {
+                            "type": "string",
+                            "format": "uuid"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "List Building Addresses response",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/FeatureCollection"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/addresses/{id}": {
+            "get": {
+                "tags": [
+                    "addresses"
+                ],
+                "description": "Get Address",
+                "summary": "/addresses/:id",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "ID of Address to get",
+                        "required": true,
+                        "schema": {
+                            "type": "string",
+                            "format": "uuid"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Get Address response",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/Address"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/addresses/{id}/geojson": {
+            "get": {
+                "tags": [
+                    "addresses"
+                ],
+                "description": "Get Address GeoJSON",
+                "summary": "/addresses/:id/geojson",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "ID of Address to get",
+                        "required": true,
+                        "schema": {
+                            "type": "string",
+                            "format": "uuid"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Get Address GeoJSON response",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/FeatureCollection"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
         }
     },
     "components": {
