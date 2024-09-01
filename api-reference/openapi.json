@@ -1136,6 +1136,72 @@
                     }
                 }
             }
+        },
+        "/addresses/{id}": {
+            "get": {
+                "tags": [
+                    "addresses"
+                ],
+                "description": "Get Address",
+                "summary": "/addresses/:id",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "ID of Address to get",
+                        "required": true,
+                        "schema": {
+                            "type": "string",
+                            "format": "uuid"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Get Address response",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/Address"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/addresses/{id}/geojson": {
+            "get": {
+                "tags": [
+                    "addresses"
+                ],
+                "description": "Get Address GeoJSON",
+                "summary": "/addresses/:id/geojson",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "ID of Address to get",
+                        "required": true,
+                        "schema": {
+                            "type": "string",
+                            "format": "uuid"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Get Address GeoJSON response",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/FeatureCollection"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
         }
     },
     "components": {

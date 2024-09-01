@@ -119,6 +119,13 @@
                 "api-reference/buildings/list-addresses",
                 "api-reference/buildings/list-addresses-geojson"
             ]
+        },
+        {
+            "group": "Addresses",
+            "pages": [
+                "api-reference/addresses/get",
+                "api-reference/addresses/get-geojson"
+            ]
         }
     ]
 }
