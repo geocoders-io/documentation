@@ -157,6 +157,50 @@
                     }
                 }
             }
+        },
+        "/countries": {
+            "get": {
+                "tags": [
+                    "countries"
+                ],
+                "description": "List Countries",
+                "summary": "/countries",
+                "parameters": [
+                    {
+                        "name": "name",
+                        "in": "query",
+                        "description": "name to filter by",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "country_code",
+                        "in": "query",
+                        "description": "",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "List Countries response",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "array",
+                                    "items": {
+                                        "$ref": "#/components/schemas/Country"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
         }
     },
     "components": {
@@ -332,6 +376,26 @@
                     "longitude": {
                         "type": "number",
                         "format": "float"
+                    }
+                }
+            },
+            "Country": {
+                "type": "object",
+                "properties": {
+                    "id": {
+                        "type": "string"
+                    },
+                    "name": {
+                        "type": "string"
+                    },
+                    "country_code": {
+                        "type": "string"
+                    },
+                    "alt_name": {
+                        "type": "string"
+                    },
+                    "local_identifier": {
+                        "type": "string"
                     }
                 }
             }

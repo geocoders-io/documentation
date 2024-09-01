@@ -63,6 +63,15 @@
             "pages": [
                 "api-reference/lookup/postcode"
             ]
+        },
+        {
+            "group": "Countries",
+            "pages": [
+                "api-reference/countries/list",
+                "api-reference/countries/list-geojson",
+                "api-reference/countries/get",
+                "api-reference/countries/get-geojson"
+            ]
         }
     ]
 }
