@@ -862,6 +862,143 @@
                     }
                 }
             }
+        },
+        "/suburbs/{id}": {
+            "get": {
+                "tags": [
+                    "suburbs"
+                ],
+                "description": "Get Suburb",
+                "summary": "/suburbs/:id",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "ID of Suburb to get",
+                        "required": true,
+                        "schema": {
+                            "type": "string",
+                            "format": "uuid"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Get Suburb response",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/Suburb"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/suburbs/{id}/geojson": {
+            "get": {
+                "tags": [
+                    "suburbs"
+                ],
+                "description": "Get Suburb GeoJSON",
+                "summary": "/suburbs/:id/geojson",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "ID of Suburb to get",
+                        "required": true,
+                        "schema": {
+                            "type": "string",
+                            "format": "uuid"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Get Suburb GeoJSON response",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/FeatureCollection"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/suburbs/{id}/buildings": {
+            "get": {
+                "tags": [
+                    "suburbs",
+                    "buildings"
+                ],
+                "description": "List Suburb Buildings",
+                "summary": "/suburbs/:id/buildings",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "ID of Suburb Buildings to list",
+                        "required": true,
+                        "schema": {
+                            "type": "string",
+                            "format": "uuid"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Get Suburb Buildings response",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "array",
+                                    "items": {
+                                        "$ref": "#/components/schemas/Building"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/suburbs/{id}/buildings/geojson": {
+            "get": {
+                "tags": [
+                    "suburbs",
+                    "buildings"
+                ],
+                "description": "List Suburb Buildings GeoJSON",
+                "summary": "/suburbs/:id/buildings/geojson",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "ID of Suburb Buildings to list",
+                        "required": true,
+                        "schema": {
+                            "type": "string",
+                            "format": "uuid"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "List Suburb Buildings response",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/FeatureCollection"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
         }
     },
     "components": {

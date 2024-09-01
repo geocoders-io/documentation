@@ -101,6 +101,15 @@
                 "api-reference/cities/list-suburbs",
                 "api-reference/cities/list-suburbs-geojson"
             ]
+        },
+        {
+            "group": "Suburbs",
+            "pages": [
+                "api-reference/suburbs/get",
+                "api-reference/suburbs/get-geojson",
+                "api-reference/suburbs/list-buildings",
+                "api-reference/suburbs/list-buildings-geojson"
+            ]
         }
     ]
 }
