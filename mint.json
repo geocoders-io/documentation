@@ -44,9 +44,13 @@
         "home",
         "quick-start",
         "routes",
-        "data-availability",
-        "authorization"
+        "authorization",
+        "data-availability"
       ]
+    },
+    {
+      "group": "Dashboard",
+      "pages": ["overview", "statistics", "API Keys", "Billing"]
     },
     {
       "group": "API Documentation",

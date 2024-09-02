@@ -1,20 +1,55 @@
 ---
-title: Available Data
+title: Data Availability
 description: 'This section provides a detailed catalogue of the available data on the Geocoders platform. '
 ---
 
 ## Data
-Geocoders is a blazingly fast, easy to use platform that provide easy access to high quality geospatial data and services.
-Our initial offering covers your needs within the BeNeLux (Belgium, Netherlands, Luxembourg) region,
-with more data constantly being added.
+Geospatial data is at the core of Geocoders services. This data can be hard to work with, often in specialised spatial
+formats that require specific domain knowledge and expensive GIS (Goespatial Information Systems) software, rarely complete
+or easy to use. That is where Geocoders comes in. We have extensive experience in the Geospatial data world and
+have done the heavy lifting for you.
 
-With focus on simplicity & performance we have built everything from the ground up in rust.
-Delivering unmatched speed paird with high quality, accurate data you can take your business to the next level.
+
+Each country has their own unique set of challenges & complexities with regard to data. Countries have different ways
+of capturing their data, not all countries have provinces, some use regions, thus making each country's data unique.
+To spare you from this complexity we have designed an easy to use Unified Data Model (*UDM*).
+A hierarchical relationship that allows for blazingly fast and easy to use APIs.
+
+### Datamodel
+The Geocoders datamodel currently consists of seven levels of hierarchy. Below is a diagram indicating the relationships
+between each level.
+
+```mermaid
+%%{init: {"flowchart": {"htmlLabels": false}} }%%
+flowchart TD
+    id1[(Geocoders)] --> id2{{Country}}
+    id2{{Country}} --> id3{{Province}}
+    id3{{Province}} --> id4{{Municipality}}
+    id4{{Municipality}} --> id5{{City}}
+    id5{{City}} --> id6{{Suburb}}
+    id6{{Suburb}} --> id7{{Building}}
+    id7{{Building}} --> id8{{Address}}
+```
+
+
+
+* Country
+* Province
+* Municipality
+* City
+* Suburb
+* Building
+* Address
+
+### Availability
+The amount of available data varies per country, thus this serves as a
+
+
 
 # Countries
-- [Netherlands](/data-availability#netherlands) 🇳🇱
-- [Belgium](/data-availability#belgium) 🇧🇪
-- [Luxembourg](/data-availability#luxembourg) 🇱🇺
+* [Netherlands](/data-availability#netherlands) 🇳🇱
+* [Belgium](/data-availability#belgium) 🇧🇪
+* [Luxembourg](/data-availability#luxembourg) 🇱🇺
 
 
 
