@@ -40,7 +40,13 @@
   "navigation": [
     {
       "group": "Getting Started",
-      "pages": ["home", "quick-start", "authorization"]
+      "pages": [
+        "home",
+        "quick-start",
+        "routes",
+        "data-availability",
+        "authorization"
+      ]
     },
     {
       "group": "API Documentation",
