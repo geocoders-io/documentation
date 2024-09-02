@@ -5,11 +5,66 @@ description: 'This section provides a high-level overview of the currently avail
 
 
 ## Routes
-Geocoders is constantly evloving and adding new functionality. This sections provides a high-level overview to the current available routes
-and a detailed breakdown of associated pricing.
+Geocoders is constantly evolving and adding new functionality.This section lists all currently available API routes.
 
-The routes a grouped into 4 products:
-* Postcode
-* Geocoding
-* Boundaries
-* Cadastral
+<Tabs>
+  <Tab title="Postcode">
+    * Postcode LookUp API
+    * Street LookUp API
+  </Tab>
+  <Tab title="Geocoding">
+    * Forward Geocoding
+    * Reverse Geocoding
+  </Tab>
+  <Tab title="Boundaries">
+    * **Countries**
+      * countries
+      * countries/geojson
+      * countries/:id
+      * countries/:id/geojson
+      * countries/:id/provinces
+      * countries/:id/provinces/geojson
+    * **Province**
+      * province/:id
+      * province/:id/geojson
+      * province/:id/municipalities
+      * province/:id/municipalities/geojson
+    * **Municipalities**
+      * municipalities/:id
+      * municipalities/:id/geojson
+      * municipalities/:id/city
+      * municipalities/:id/city/geojson
+    * **Cities**
+      * cities/:id
+      * cities/:id/geojson
+      * cities/:id/suburbs
+      * cities/:id/suburbs/geojson
+    * **Suburbs**
+      * suburb/:id
+      * suburb/:id/geojson
+      * suburb/:id/suburbs
+      * suburb/:id/suburbs/geojson
+    * **Address**
+      * address/:id
+      * address/:id/geojson
+      * address/:id/suburbs
+      * address/:id/suburbs/geojson
+  </Tab>
+  <Tab title="Cadastral">
+  * **Buildings**
+    * buildings/:id
+    * buildings/:id/geojson
+    * buildings/:id/addresses
+    * buildings/:id/addresses/geojson
+  </Tab>
+</Tabs>
+
+New routes are constantly added.
+
+<Card
+  title="API Reference"
+  icon="code"
+  href="/api-reference"
+>
+  For a detailed description of the API functionality please refer to the API reference docs.
+</Card>

@@ -19,30 +19,27 @@ A hierarchical relationship that allows for blazingly fast and easy to use APIs.
 The Geocoders datamodel currently consists of seven levels of hierarchy. Below is a diagram indicating the relationships
 between each level.
 
-```mermaid
-%%{init: {"flowchart": {"htmlLabels": false}} }%%
-flowchart TD
-    id1[(Geocoders)] --> id2{{Country}}
-    id2{{Country}} --> id3{{Province}}
-    id3{{Province}} --> id4{{Municipality}}
-    id4{{Municipality}} --> id5{{City}}
-    id5{{City}} --> id6{{Suburb}}
-    id6{{Suburb}} --> id7{{Building}}
-    id7{{Building}} --> id8{{Address}}
-```
+<p align="center">
+  <img
+    className="block dark:hidden"
+    src="/images/data-model-light.png"
+    alt="Teams Light"
+    width="90%"
+    align="center"
+  />
+  <img
+    className="hidden dark:block"
+    src="/images/data-model-dark.png"
+    alt="Teams Dark"
+    width="90%"
+    align="center"
+  />
+</p>
 
-
-
-* Country
-* Province
-* Municipality
-* City
-* Suburb
-* Building
-* Address
 
 ### Availability
-The amount of available data varies per country, thus this serves as a
+The amount of available data varies per country, thus this serves as a detailed data catalogue
+as well a translation for local names to UDM.
 
 
 
@@ -54,9 +51,12 @@ The amount of available data varies per country, thus this serves as a
 
 
 ## Netherlands
-
+The Netherlands has an incredibly well structure and readily available geographical data.
 
 ## Belgium
+Belgium's Flanders regions has data that is as extensive as that of The Netherlands.
+Wollonia unfortunately does not yet have building Cadastral data available.
 
 
 ## Luxembourg
+Luxembourg also have very extensive data available
