@@ -50,7 +50,7 @@
     },
     {
       "group": "Dashboard",
-      "pages": ["overview", "statistics", "API Keys", "Billing"]
+      "pages": ["dashboard-overview", "statistics", "api-keys", "billing"]
     },
     {
       "group": "API Documentation",
