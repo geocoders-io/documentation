@@ -39,18 +39,8 @@
   ],
   "navigation": [
     {
-      "group": "Getting Started",
-      "pages": [
-        "home",
-        "quick-start",
-        "routes",
-        "authorization",
-        "data-availability"
-      ]
-    },
-    {
-      "group": "Dashboard",
-      "pages": ["dashboard-overview", "statistics", "api-keys", "billing"]
+      "group": "Get Started",
+      "pages": ["introduction", "authorization"]
     },
     {
       "group": "API Documentation",
@@ -65,7 +55,7 @@
     },
     {
       "group": "Lookup",
-      "pages": ["api-reference/lookup/postcode"]
+      "pages": ["api-reference/lookup/postcode", "api-reference/lookup/street"]
     },
     {
       "group": "Countries",
@@ -112,6 +102,22 @@
         "api-reference/suburbs/get-geojson",
         "api-reference/suburbs/list-buildings",
         "api-reference/suburbs/list-buildings-geojson"
+      ]
+    },
+    {
+      "group": "Buildings",
+      "pages": [
+        "api-reference/buildings/get",
+        "api-reference/buildings/get-geojson",
+        "api-reference/buildings/list-addresses",
+        "api-reference/buildings/list-addresses-geojson"
+      ]
+    },
+    {
+      "group": "Addresses",
+      "pages": [
+        "api-reference/addresses/get",
+        "api-reference/addresses/get-geojson"
       ]
     }
   ]

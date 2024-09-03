@@ -18,30 +18,29 @@ A hierarchical relationship that allows for blazingly fast and easy to use APIs.
 ### Datamodel
 The Geocoders datamodel currently consists of seven levels of hierarchy. Below is a diagram indicating the relationships
 between each level.
-
-<p align="center">
-  <img
-    className="block dark:hidden"
-    src="/images/data-model-light.png"
-    alt="Teams Light"
-    width="90%"
-    align="center"
-  />
-  <img
-    className="hidden dark:block"
-    src="/images/data-model-dark.png"
-    alt="Teams Dark"
-    width="90%"
-    align="center"
-  />
-</p>
+<Frame>
+  <p align="center">
+    <img
+      className="block dark:hidden"
+      src="/images/data-model-light.png"
+      alt="Teams Light"
+      width="90%"
+      align="center"
+    />
+    <img
+      className="hidden dark:block"
+      src="/images/data-model-dark.png"
+      alt="Teams Dark"
+      width="90%"
+      align="center"
+    />
+  </p>
+</Frame>
 
 
 ### Availability
 The amount of available data varies per country, thus this serves as a detailed data catalogue
 as well a translation for local names to UDM.
-
-
 
 # Countries
 * [Netherlands](/data-availability#netherlands) 🇳🇱
@@ -51,12 +50,86 @@ as well a translation for local names to UDM.
 
 
 ## Netherlands
-The Netherlands has an incredibly well structure and readily available geographical data.
+### Available
+The Netherlands has incredibly well structure and readily available geographical data.
+Geocoders currently supports the following data for The Netherlands.
+
+
+| **Level** | **Local Name** | **Description** | **Available** | **Example** |
+| :---------------------------------------- | :---------- | :------------------------------- | :------------------------------------: | ----------------------------------------------------------: |
+| <p text-align="center"> Country </p>      | Land        | Country Sovereign Boundary       | <Icon icon="check" iconType="solid" /> | <Icon icon="arrow-up-right-from-square" iconType="solid" /> |
+| <p text-align="center"> Province </p>     | Provincie   | Provincial Boundaries            | <Icon icon="check" iconType="solid" /> | <Icon icon="arrow-up-right-from-square" iconType="solid" /> |
+| <p text-align="center"> Municipality </p> | Gemeente    | Municipalty Boundaries           | <Icon icon="check" iconType="solid" /> | <Icon icon="arrow-up-right-from-square" iconType="solid" /> |
+| <p text-align="center"> City </p>         | Woonplaants | City Borders                     | <Icon icon="check" iconType="solid" /> | <Icon icon="arrow-up-right-from-square" iconType="solid" /> |
+| <p text-align="center"> Suburb </p>       | Wijk        | Suburb boundary of a give City   | <Icon icon="check" iconType="solid" /> | <Icon icon="arrow-up-right-from-square" iconType="solid" /> |
+| <p text-align="center"> Building </p>     | Gebouw      | Cadastral Boundary of a building | <Icon icon="check" iconType="solid" /> | <Icon icon="arrow-up-right-from-square" iconType="solid" /> |
+
+
+### Coming Soon
+Geocodders is constantly adding new data to solve challenging and unique geospatial question you may have. Below is a list of
+data that will be added in the next release.
+
+| **Level** | **Local Name** | **Description** | **Availability** |
+| :--: | :--: | :--: | :--: |
+| <p text-align="center"> Neighbourhood </p> | Buurten | A subdivision of Suburbs | **_Coming Soon_** |
+| <p text-align="center"> Cadastral Parcels </p> | Kadastrale Grenzen | Land parcel boundaries | **_Coming Soon_** |
+| <p text-align="center"> Municipal Statistics </p> | - | CBS Census statistics per Gemeente | **_Coming Soon_** |
+| <p text-align="center"> Suburb Statistics </p> | - | CBS Census statistics per Wijk | **_Coming Soon_** |
+| <p text-align="center"> Neighbourhood Statistics </p> | - | CBS Census statistics per Buurt | **_Coming Soon_** |
+| <p text-align="center"> Property Meta Data </p> | - | Detailed collection of property metadata | **_Coming Soon_** |
+
+_... and so much more!_
+
 
 ## Belgium
 Belgium's Flanders regions has data that is as extensive as that of The Netherlands.
 Wollonia unfortunately does not yet have building Cadastral data available.
 
+| **Level** | **Local Name** | **Description** | **Available** | **Example** |
+| :---------------------------------------: | :---------: | :------------------------------: | :------------------------------------: | :----------------------------------------------------------: |
+| <p text-align="center"> Country </p>      | Land        | Country Sovereign Boundary       | <Icon icon="check" iconType="solid" /> | <Icon icon="arrow-up-right-from-square" iconType="solid" /> |
+| <p text-align="center"> Province </p>     | Provincie   | Provincial Boundaries            | <Icon icon="check" iconType="solid" /> | <Icon icon="arrow-up-right-from-square" iconType="solid" /> |
+| <p text-align="center"> Municipality </p> | Gemeente    | Municipalty Boundaries           | <Icon icon="check" iconType="solid" /> | <Icon icon="arrow-up-right-from-square" iconType="solid" /> |
+| <p text-align="center"> City </p>         | Woonplaants | City Borders                     | <Icon icon="check" iconType="solid" /> | <Icon icon="arrow-up-right-from-square" iconType="solid" /> |
+| <p text-align="center"> Suburb </p>       | Wijk        | Suburb boundary of a give City   | <Icon icon="check" iconType="solid" /> | <Icon icon="arrow-up-right-from-square" iconType="solid" /> |
+| <p text-align="center"> Building </p>     | Gebouw      | Cadastral Boundary of a building | <Icon icon="check" iconType="solid" /> | <Icon icon="arrow-up-right-from-square" iconType="solid" /> |
+
+
+### Coming Soon
+Geocodders is constantly adding new data to solve challenging and unique geospatial question you may have. Below is a list of
+data that will be added in the next release.
+
+| **Level** | **Local Name** | **Description** | **Availability** |
+| :--: | :--: | :--: | :--: |
+| <p text-align="center"> Region </p> | Region | A subdivision of Country into Common Geographical Areas | **_Coming Soon_** |
+| <p text-align="center"> Detailed Subdivisions </p> | Arrondissement | A Fine Grained Subdevision of Statistical Areas | **_Coming Soon_** |
+| <p text-align="center"> Buidlings </p> | - | Wollonia currently does not have Buildings data | **_Coming Soon_** |
+| <p text-align="center"> Census Statistics </p> | - | Census statistics per Level | **_Coming Soon_** |
+
+_... and so much more!_
 
 ## Luxembourg
-Luxembourg also have very extensive data available
+Luxembourg also has extensive data available.
+
+| **Level** | **Local Name** | **Description** | **Available** | **Example** |
+| :---------------------------------------: | :---------: | :------------------------------: | :------------------------------------: | :----------------------------------------------------------: |
+| <p text-align="center"> Country </p>      | Land        | Country Sovereign Boundary       | <Icon icon="check" iconType="solid" /> | <Icon icon="arrow-up-right-from-square" iconType="solid" /> |
+| <p text-align="center"> Province </p>     | Canton      | Provincial Boundaries            | <Icon icon="check" iconType="solid" /> | <Icon icon="arrow-up-right-from-square" iconType="solid" /> |
+| <p text-align="center"> Municipality </p> | Municipality| Municipalty Boundaries           | <Icon icon="check" iconType="solid" /> | <Icon icon="arrow-up-right-from-square" iconType="solid" /> |
+| <p text-align="center"> City </p>         | Localities  | City Borders                     | <Icon icon="check" iconType="solid" /> | <Icon icon="arrow-up-right-from-square" iconType="solid" /> |
+| <p text-align="center"> Suburb </p>       | District    | Suburb boundary of a give City   | <Icon icon="check" iconType="solid" /> | <Icon icon="arrow-up-right-from-square" iconType="solid" /> |
+| <p text-align="center"> Building </p>     | Cadastré    | Cadastral Boundary of a building | <Icon icon="check" iconType="solid" /> | <Icon icon="arrow-up-right-from-square" iconType="solid" /> |
+
+
+### Coming Soon
+Geocodders is constantly adding new data to solve challenging and unique geospatial question you may have. Below is a list of
+data that will be added in the next release.
+
+| **Level** | **Local Name** | **Description** | **Availability** |
+| :--: | :--: | :--: | :--: |
+| <p text-align="center"> Region </p> | Region | A subdivision of Country into Common Geographical Areas | **_Coming Soon_** |
+| <p text-align="center"> Detailed Subdivisions </p> | Arrondissement | A Fine Grained Subdevision of Statistical Areas | **_Coming Soon_** |
+| <p text-align="center"> Cadastral Parcels </p> | - | Land parcel boundaries | **_Coming Soon_** |
+| <p text-align="center"> Census Statistics </p> | - | Census statistics per Level | **_Coming Soon_** |
+
+_... and so much more!_
