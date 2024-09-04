@@ -1,0 +1,79 @@
+---
+title: Routes
+description: 'This section provides a high-level overview of the currently available routes.'
+---
+
+## Routes
+Geocoders is constantly evolving and adding new functionality. This section lists all currently available API routes.
+
+<Tabs>
+  <Tab title="Postcode">
+    * [Postcode LookUp API](/api-reference/lookup/postcode)
+    * Street LookUp API
+  </Tab>
+  <Tab title="Geocoding">
+    * [Forward Geocoding](/api-reference/geocode/forward)
+    * [Reverse Geocoding](/api-reference/geocode/reverse)
+  </Tab>
+  <Tab title="Boundaries">
+    * **Countries**
+      * [countries](/api-reference/countries/list)
+      * [countries/geojson](/api-reference/countries/list-geojson)
+      * [countries/:id](/api-reference/countries/get)
+      * [countries/:id/geojson](/api-reference/countries/get-geojson)
+      * [countries/:id/provinces](/api-reference/countries/list-provinces)
+      * [countries/:id/provinces/geojson](/api-reference/countries/list-provinces-geojson)
+    * **Province**
+      * [province/:id](/api-reference/provinces/get)
+      * [province/:id/geojson](/api-reference/provinces/get-geojson)
+      * [province/:id/municipalities](/api-reference/provinces/list-municipalities)
+      * [province/:id/municipalities/geojson](/api-reference/provinces/list-municipalities-geojson)
+    * **Municipalities**
+      * [municipalities/:id](/api-reference/municipalities/get)
+      * [municipalities/:id/geojson](/api-reference/municipalities/get-geojson)
+      * [municipalities/:id/city](/api-reference/municipalities/list-cities)
+      * [municipalities/:id/city/geojson](/api-reference/municipalities/list-cities-geojson)
+    * **Cities**
+      * [cities/:id](/api-reference/cities/get)
+      * [cities/:id/geojson](/api-reference/cities/get-geojson)
+      * [cities/:id/suburbs](/api-reference/cities/list-suburbs)
+      * [cities/:id/suburbs/geojson](/api-reference/cities/list-suburbs-geojson)
+    * **Suburbs**
+      * [suburb/:id](/api-reference/suburbs/get)
+      * [suburb/:id/geojson](/api-reference/suburbs/get-geojson)
+      * [suburb/:id/buildings](/api-reference/suburbs/list-buildings)
+      * [suburb/:id/buildings/geojson](/api-reference/suburbs/list-buildings-geojson)
+    * **Address**
+      * [address/:id](/api-reference/addresses/get)
+      * [address/:id/geojson](/api-reference/addresses/get-geojson)
+  </Tab>
+  <Tab title="Cadastral">
+  * **Buildings**
+    * [buildings/:id](/api-reference/buildings/get)
+    * [buildings/:id/geojson](/api-reference/buildings/get-geojson)
+    * [buildings/:id/addresses](/api-reference/buildings/list-addresses)
+    * [buildings/:id/addresses/geojson](/api-reference/buildings/list-addresses-geojson)
+  </Tab>
+  <Tab title="coming soon...">
+    * _Cadastral Parcels_
+    * _Drone No-Fly Zones_
+    * _Census Statistics_
+    * _Flood Risk Zones_
+    * _Property Valuation Reports_
+    * _and many more_
+  </Tab>
+</Tabs>
+
+
+Be sure to keep an eye on our docs as new routes are constantly added.
+Wanna helpm us fill our backlog? Should you have a specific request and the data
+is not available of the Gecoders Platform, please feel free to send us a request via
+[support@geocoders.io](support@geocoders.io)
+
+<Card
+  title="API Reference"
+  icon="code"
+  href="/api-reference"
+>
+  For a detailed description and to test the API functionality please refer to the API reference docs.
+</Card>
